@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Focus Timer & Micro-Break Manager
+
+A minimal, distraction-free Pomodoro-style timer web app built with Next.js, TypeScript, and Tailwind CSS. It helps you stay focused during work sessions and take restorative micro-breaks, with features for session tracking, dark mode, and PWA support.
+
+## Demo
+
+![App Demo](./demo.gif)
+
+## Features
+
+- Focus and Break timer with presets (25/45/90 min work, 5/10/15 min break)
+- Custom durations gated behind Premium (placeholder paywall)
+- Start, Pause/Resume, Reset, and Skip controls
+- Session stats: counts of completed focus and break sessions (daily)
+- Dark mode toggle (respects system preference)
+- Settings modal for toggling sound, desktop notifications, and auto-start
+- Keyboard shortcuts: Space = Start/Pause, S = Skip, R = Reset
+- PWA ready: manifest.json and service worker stubs
+- Analytics event stubs (console logging)
+- Responsive and accessible UI
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) 15.4
+- [React](https://reactjs.org/) 19.1
+- [TypeScript](https://www.typescriptlang.org/) 5+
+- [Tailwind CSS](https://tailwindcss.com/) 4
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/hi-malik/Focus-Timer-Micro-Break-Manager-APP.git
+   cd Focus-Timer-Micro-Break-Manager-APP/focus-timer-web
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run in development:
+   ```bash
+   npm run dev
+   ```
+4. Open your browser at `http://localhost:3000`
+
+## Production Build
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Premium features**: Enabled via placeholder paywall modal
+- **Theme**: Stored in `localStorage` under `ft_theme`
+- **State persistence**: Timer state and settings saved to `localStorage` under `ft_state_v1`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+Deploy easily on Vercel by connecting this repository to your Vercel account. No additional environment variables are required for the basic functionality.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add my feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a pull request
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
