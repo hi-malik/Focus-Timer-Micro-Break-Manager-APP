@@ -48,3 +48,5 @@ Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
  GET / 200 in 658ms
  GET / 200 in 83ms
  ✓ Compiled in 334ms (567 modules)
+ ✓ Compiled in 889ms (235 modules)
+ ✓ Compiled in 283ms (235 modules)
