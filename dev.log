@@ -1,0 +1,50 @@
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.29.105:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.6s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.2s (583 modules)
+ GET / 200 in 9113ms
+ ✓ Compiled /_not-found in 434ms (570 modules)
+ GET / 404 in 682ms
+ GET / 200 in 223ms
+ GET /_next/static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc06._.js 404 in 184ms
+ GET /_next/static/chunks/%5Broot-of-the-server%5D__8ebb6d4b._.css 404 in 183ms
+ GET /_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_d575f738.js 404 in 184ms
+ GET /_next/static/chunks/node_modules_next_dist_compiled_0f1b9fd4._.js 404 in 183ms
+ GET /_next/static/chunks/node_modules_next_dist_client_20b209c9._.js 404 in 183ms
+ GET /_next/static/chunks/node_modules_next_dist_445d8acf._.js 404 in 170ms
+ GET /_next/static/chunks/node_modules_%40swc_helpers_cjs_8e433861._.js 404 in 163ms
+ GET /_next/static/chunks/_e69f0d32._.js 404 in 163ms
+ GET /_next/static/chunks/_01f48b92._.js 404 in 164ms
+ GET /_next/static/chunks/src_app_layout_tsx_68b267f5._.js 404 in 163ms
+ GET /_next/static/chunks/node_modules_next_dist_01fcdebf._.js 404 in 163ms
+ GET /_next/static/chunks/src_app_favicon_ico_mjs_f9cadd25._.js 404 in 101ms
+ GET /_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js 404 in 63ms
+ GET /_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_5af4a3bc._.js 404 in 62ms
+ ✓ Compiled in 674ms (234 modules)
+ ✓ Compiled in 208ms (234 modules)
+ ✓ Compiled in 742ms (234 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 558ms (331 modules)
+ GET / 200 in 1102ms
+ ✓ Compiled in 198ms (234 modules)
+ ✓ Compiled in 559ms (234 modules)
+ ✓ Compiled in 477ms (234 modules)
+ ✓ Compiled in 1003ms (235 modules)
+ ✓ Compiled in 376ms (235 modules)
+ ✓ Compiled in 345ms (235 modules)
+ ✓ Compiled in 608ms (235 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 884ms (332 modules)
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ GET / 200 in 1360ms
+ ✓ Compiled in 347ms (567 modules)
+ ✓ Compiled in 271ms (235 modules)
+ ✓ Compiled / in 213ms (332 modules)
+ GET / 200 in 658ms
+ GET / 200 in 83ms
+ ✓ Compiled in 334ms (567 modules)
