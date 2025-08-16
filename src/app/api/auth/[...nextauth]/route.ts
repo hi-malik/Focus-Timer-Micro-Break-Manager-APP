@@ -1,7 +1,14 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { prisma } from "@/lib/prisma";
+import bcrypt from "bcryptjs";
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 const handler = NextAuth({
+  adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
       name: "Credentials",
@@ -12,10 +19,12 @@ const handler = NextAuth({
       async authorize(credentials) {
         const email = credentials?.email?.toString() ?? "";
         const password = credentials?.password?.toString() ?? "";
-        // Demo auth: check against locally registered users (from localStorage via cookie-like header is not possible).
-        // Since we don't have a DB in this MVP, fallback to accepting any non-empty email/password.
-        if (email && password) return { id: email, name: email.split("@")[0], email };
-        return null;
+        if (!email || !password) return null;
+        const user = await prisma.user.findUnique({ where: { email } });
+        if (!user) return null;
+        const ok = await bcrypt.compare(password, user.passwordHash);
+        if (!ok) return null;
+        return { id: user.id, name: user.name ?? user.email, email: user.email };
       },
     }),
   ],

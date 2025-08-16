@@ -67,3 +67,583 @@ Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
  ✓ Compiled in 341ms (281 modules)
  ✓ Compiled in 427ms (281 modules)
  ✓ Compiled in 361ms (281 modules)
+ ✓ Compiled in 1929ms (281 modules)
+   Reload env: .env
+ ✓ Compiled in 245ms (267 modules)
+   Reload env: .env
+ ✓ Compiled in 193ms (267 modules)
+ ✓ Compiled in 602ms (281 modules)
+ ✓ Compiled in 397ms (281 modules)
+ ✓ Compiled in 340ms (281 modules)
+ ✓ Compiled in 612ms (267 modules)
+ ✓ Compiled in 396ms (281 modules)
+ ✓ Compiled in 363ms (281 modules)
+ ✓ Compiled in 514ms (281 modules)
+ ✓ Compiled in 255ms (281 modules)
+ ✓ Compiled in 165ms (281 modules)
+ ✓ Compiled in 223ms (281 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1100ms (706 modules)
+ GET / 200 in 1565ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 1171ms (945 modules)
+ ✓ Compiled /sign-in in 330ms (954 modules)
+ GET /sign-in 200 in 815ms
+[next-auth][warn][NEXTAUTH_URL] 
+https://next-auth.js.org/warnings#nextauth_url
+ GET /api/auth/session 200 in 2364ms
+ ✓ Compiled /register in 323ms (961 modules)
+ GET /register 200 in 450ms
+ GET / 200 in 325ms
+[next-auth][warn][NEXTAUTH_URL] 
+https://next-auth.js.org/warnings#nextauth_url
+ GET /api/auth/session 200 in 171ms
+ GET /sign-in 200 in 33ms
+ GET /register 200 in 19ms
+ ✓ Compiled /api/register in 491ms (975 modules)
+ POST /api/register 400 in 664ms
+ POST /api/register 200 in 120ms
+ GET /sign-in?registered=1 200 in 77ms
+[next-auth][warn][NEXTAUTH_URL] 
+https://next-auth.js.org/warnings#nextauth_url
+ GET /api/auth/providers 200 in 87ms
+ GET /api/auth/csrf 200 in 8ms
+ POST /api/auth/callback/credentials 200 in 111ms
+ GET /api/auth/session 200 in 13ms
+ GET / 200 in 23ms
+ GET /api/auth/session 200 in 32ms
+ ✓ Compiled in 1706ms (288 modules)
+ ⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+ ○ Compiling /_error ...
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/client-development/10.pack.gz_' -> '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/client-development/10.pack.gz'
+ ✓ Compiled /_error in 5s (1037 modules)
+ GET / 500 in 5523ms
+ GET / 200 in 119ms
+ GET / 200 in 19ms
+ GET / 200 in 16ms
+ GET / 200 in 176ms
+ ✓ Compiled /api/auth/[...nextauth] in 279ms (867 modules)
+[next-auth][warn][NEXTAUTH_URL] 
+https://next-auth.js.org/warnings#nextauth_url
+ GET /api/auth/session 200 in 553ms
+ ✓ Compiled in 1323ms (1306 modules)
+ GET / 200 in 229ms
+[next-auth][warn][NEXTAUTH_URL] 
+https://next-auth.js.org/warnings#nextauth_url
+ GET /api/auth/session 200 in 354ms
+ GET /api/auth/session 200 in 31ms
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError'
+}
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError'
+}
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError'
+}
+ ⨯ Failed to generate static paths for /api/auth/[...nextauth]:
+TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError'
+}
+ ✓ Compiled in 977ms (1306 modules)
+ GET / 200 in 175ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/server-development/2.pack.gz_' -> '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/server-development/2.pack.gz'
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/csrf'
+}
+ GET /api/auth/csrf 500 in 1050ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/csrf'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/csrf'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/csrf'
+}
+ POST /api/auth/_log 500 in 831ms
+ POST /api/auth/signout 500 in 823ms
+ GET /api/auth/csrf 500 in 336ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/signout'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/signout'
+}
+ POST /api/auth/_log 500 in 694ms
+ POST /api/auth/signout 500 in 687ms
+ GET / 200 in 217ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/session'
+}
+ GET /api/auth/session 500 in 642ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/_log'
+}
+ POST /api/auth/_log 500 in 658ms
+ GET /sign-in 200 in 29ms
+ GET /register 200 in 29ms
+ GET /sign-in 200 in 19ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/providers'
+}
+ GET /api/auth/providers 500 in 1005ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/error'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:47)
+    at Object.<anonymous> (.next/server/app/api/auth/[...nextauth]/route.js:430:3) {
+  type: 'TypeError',
+  page: '/api/auth/error'
+}
+ POST /api/auth/_log 500 in 712ms
+ GET /api/auth/error 500 in 395ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 574ms (883 modules)
+ GET /favicon.ico 200 in 791ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/[...nextauth]/route.ts:6:67)
+    at <unknown> (rsc)/./src/app/api/auth/[...nextauth]/route.ts (/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js:43:1)
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473) {
+  type: 'TypeError',
+  page: '/api/auth/providers'
+}
+ GET /api/auth/providers 500 in 902ms
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/[...nextauth]/route.ts:6:67)
+    at <unknown> (rsc)/./src/app/api/auth/[...nextauth]/route.ts (/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js:43:1)
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473) {
+  type: 'TypeError',
+  page: '/api/auth/error'
+}
+ ⨯ TypeError: Cannot read properties of undefined (reading 'call')
+    at eval (webpack-internal:///(rsc)/./src/app/api/auth/[...nextauth]/route.ts:6:67)
+    at <unknown> (rsc)/./src/app/api/auth/[...nextauth]/route.ts (/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js:43:1)
+    at __webpack_exec__ (.next/server/app/api/auth/[...nextauth]/route.js:426:39)
+    at <unknown> (.next/server/app/api/auth/[...nextauth]/route.js:427:473) {
+  type: 'TypeError',
+  page: '/api/auth/error'
+}
+ POST /api/auth/_log 500 in 798ms
+ GET /api/auth/error 500 in 490ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /api/auth/error 404 in 229ms
+ ✓ Compiled /_not-found in 472ms (1311 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js',
+  page: '/api/auth/error'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/api/auth/[...nextauth]/route.js',
+  page: '/api/auth/error'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET /api/auth/error 500 in 4685ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/client-development-fallback/0.pack.gz_' -> '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/cache/webpack/client-development-fallback/0.pack.gz'
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 113ms
+ GET /_next/static/chunks/app/layout.js 404 in 150ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 148ms
+ GET /_next/static/chunks/app/page.js 404 in 89ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 50ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 92ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 36ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 65ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 86ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 85ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 33ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 67ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 81ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 75ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 35ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 63ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 68ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 34ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 71ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 79ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 40ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 68ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 70ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 32ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 66ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/page.js',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages/_document.js'
+}
+ GET / 500 in 73ms
+ GET /_next/static/webpack/016e077a0bb99129.webpack.hot-update.json 404 in 58ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/pages-manifest.json'
+}
+ GET / 500 in 397ms
+ ✓ Compiled in 1136ms (437 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 7ms
+ ✓ Compiled /_not-found in 419ms (1045 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ GET / 500 in 517ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ GET /_next/static/chunks/fallback/webpack.js?ts=1755374522864 500 in 93ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ GET /_next/static/chunks/fallback/main.js?ts=1755374522864 500 in 262ms
+ GET /_next/static/chunks/fallback/pages/_error.js?ts=1755374522864 500 in 242ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/jaidevsinghmalik/Desktop/SAAS/focus-timer-web/.next/server/app/_not-found/page.js'
+}
+ GET /_next/static/chunks/fallback/pages/_app.js?ts=1755374522864 500 in 329ms
+ GET /_next/static/chunks/fallback/react-refresh.js?ts=1755374522864 500 in 160ms
+ ✓ Compiled in 352ms (441 modules)
+ ✓ Compiled in 383ms (441 modules)
+ ✓ Compiled in 111ms (441 modules)
+   Reload env: .env
+ ✓ Compiled in 618ms (1045 modules)

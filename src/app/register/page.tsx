@@ -17,18 +17,18 @@ export default function RegisterPage(): React.ReactElement {
       setError('Passwords do not match');
       return;
     }
-    // Demo registration: store user locally (for demo only)
     try {
-      const usersRaw = localStorage.getItem('ft_users_v1');
-      const users: Array<{ email: string; password: string }> = usersRaw ? JSON.parse(usersRaw) : [];
-      const exists = users.some((u) => u.email.toLowerCase() === email.toLowerCase());
-      if (exists) {
-        setError('User already exists');
-        return;
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      if (res.ok) {
+        router.push('/sign-in?registered=1');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || 'Registration failed');
       }
-      users.push({ email, password });
-      localStorage.setItem('ft_users_v1', JSON.stringify(users));
-      router.push('/sign-in?registered=1');
     } catch {
       setError('Unexpected error. Please try again.');
     }
