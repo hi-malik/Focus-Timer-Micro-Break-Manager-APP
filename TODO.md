@@ -24,6 +24,15 @@ Implemented (ready today):
 MVP remaining (prioritized for ASAP deploy):
 - [ ] Unit tests for timer logic
 - [ ] CI: lint + typecheck + build on PR
+- [x] Switch to PostgreSQL database
+- [x] Update prisma/schema.prisma datasource provider to postgresql and run migrations (npx prisma migrate dev && npx prisma generate)
+- [ ] Add OAuth providers (Google, GitHub) in NextAuth config
+- [ ] Install OAuth provider packages and configure client IDs/secrets in .env
+- [ ] Implement password reset request endpoint (/api/auth/request-reset)
+- [ ] Implement password reset endpoint (/api/auth/reset)
+- [ ] Integrate email sending service (Resend/SendGrid) for password reset and verification
+- [ ] Send verification email upon user registration
+- [ ] Block login until user emailVerified is set
 
 Deployment readiness checklist:
 - [ ] App icons + favicon + social image

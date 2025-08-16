@@ -16,7 +16,8 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 - **Auto-start**: Seamless transition between focus and break phases
 
 ### User Experience
-- **User Authentication**: Sign up, sign in, and personalized sessions
+- **User Authentication**: Complete sign up, sign in, and personalized sessions
+- **Session Management**: Secure user sessions with NextAuth.js
 - **Dark Mode**: Toggle between light and dark themes
 - **Settings Modal**: Configure sound, desktop notifications, and preferences
 - **Keyboard Shortcuts**: Space = Start/Pause, S = Skip, R = Reset
@@ -28,6 +29,7 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 - **Sound Effects**: Audio feedback for timer transitions
 - **State Persistence**: Timer state and settings saved locally
 - **Analytics Ready**: Event tracking infrastructure in place
+- **Database Integration**: Prisma ORM with SQLite/PostgreSQL support
 
 ## 🛠️ Tech Stack
 
@@ -80,7 +82,7 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 ## 🔧 Configuration
 
 ### Environment Variables
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory by copying `.env.example`:
 
 ```env
 # Database
@@ -91,6 +93,8 @@ DATABASE_URL="file:./dev.db"  # SQLite for development
 NEXTAUTH_SECRET="your-secret-key-here"
 NEXTAUTH_URL="http://localhost:3000"
 ```
+
+**Important**: Never commit your `.env` file to version control. Use `.env.example` as a template.
 
 ### Database Setup
 - **Development**: SQLite (automatically created)
@@ -103,27 +107,44 @@ focus-timer-web/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── api/               # API routes
-│   │   │   ├── auth/          # NextAuth endpoints
-│   │   │   └── register/      # User registration
+│   │   │   └── auth/          # NextAuth endpoints
 │   │   ├── sign-in/           # Sign-in page
 │   │   ├── register/          # Registration page
-│   │   ├── layout.tsx         # Root layout
+│   │   ├── layout.tsx         # Root layout with auth providers
 │   │   └── page.tsx           # Home page
 │   ├── components/             # React components
 │   │   ├── Timer.tsx          # Main timer component
-│   │   ├── Header.tsx         # Navigation header
+│   │   ├── Header.tsx         # Navigation header with auth
 │   │   ├── Modal.tsx          # Reusable modal
-│   │   └── Welcome.tsx        # Welcome message
+│   │   └── ThemeToggle.tsx    # Theme switching
 │   ├── lib/                    # Utility functions
-│   │   ├── auth.ts            # Auth configuration
 │   │   ├── prisma.ts          # Database client
 │   │   └── analytics.ts       # Analytics helpers
 │   └── generated/              # Generated Prisma client
 ├── prisma/                     # Database schema
-│   └── schema.prisma          # Prisma schema definition
+│   ├── schema.prisma          # Prisma schema definition
+│   └── migrations/            # Database migrations
 ├── public/                     # Static assets
+├── .env.example               # Environment variables template
 └── package.json                # Dependencies and scripts
 ```
+
+## 🔐 Authentication Features
+
+The app includes a complete authentication system:
+
+- **User Registration**: Create new accounts with email/password
+- **User Sign In**: Secure authentication with bcrypt password hashing
+- **Session Management**: Persistent user sessions with NextAuth.js
+- **Protected Routes**: Premium features gated behind authentication
+- **Password Security**: Secure password hashing with bcryptjs
+
+### Authentication Flow
+1. Users can register with email and password
+2. Passwords are securely hashed using bcryptjs
+3. Sign-in validates credentials against the database
+4. Sessions are managed by NextAuth.js
+5. User state is available throughout the application
 
 ## 🚀 Production Deployment
 
@@ -144,15 +165,6 @@ npm start
 npx prisma migrate deploy
 npx prisma generate
 ```
-
-## 🔐 Authentication
-
-The app uses NextAuth.js with a Credentials provider:
-
-- **Registration**: Users can create accounts with email/password
-- **Sign In**: Secure authentication with bcrypt password hashing
-- **Session Management**: Persistent user sessions
-- **Protected Routes**: Premium features gated behind authentication
 
 ## 💰 Premium Features
 
@@ -177,6 +189,7 @@ We welcome contributions! Please follow these steps:
 - Use conventional commit messages
 - Test your changes thoroughly
 - Update documentation as needed
+- Never commit sensitive information (use .env.example)
 
 ## 📝 License
 
