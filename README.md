@@ -30,6 +30,7 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 - **State Persistence**: Timer state and settings saved locally
 - **Analytics Ready**: Event tracking infrastructure in place
 - **Database Integration**: Prisma ORM with SQLite/PostgreSQL support
+- **Comprehensive Testing**: Jest testing framework with React Testing Library
 
 ## 🛠️ Tech Stack
 
@@ -39,6 +40,7 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 - **Database**: [Prisma](https://www.prisma.io/) ORM with SQLite (dev) / PostgreSQL (prod)
 - **Password Security**: [bcryptjs](https://github.com/dcodeIO/bcrypt.js/) for secure hashing
 - **State Management**: React Hooks with localStorage persistence
+- **Testing**: [Jest](https://jestjs.io/) with [React Testing Library](https://testing-library.com/)
 
 ## 🚀 Getting Started
 
@@ -79,6 +81,31 @@ A modern, distraction-free Pomodoro-style timer web app built with Next.js, Type
 
 6. **Open your browser** at `http://localhost:3000`
 
+## 🧪 Testing
+
+The project includes comprehensive testing infrastructure:
+
+### Run Tests
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+```
+
+### Test Coverage
+- **Component Tests**: All React components are tested with React Testing Library
+- **API Tests**: API endpoints are tested for proper functionality
+- **Integration Tests**: End-to-end user flows are covered
+- **Mocking**: Audio, notifications, and browser APIs are properly mocked
+
+### Testing Stack
+- **Jest**: Test runner and assertion library
+- **React Testing Library**: Component testing utilities
+- **@swc/jest**: Fast TypeScript/JSX transformation
+- **jsdom**: Browser environment simulation
+
 ## 🔧 Configuration
 
 ### Environment Variables
@@ -92,6 +119,15 @@ DATABASE_URL="file:./dev.db"  # SQLite for development
 # NextAuth
 NEXTAUTH_SECRET="your-secret-key-here"
 NEXTAUTH_URL="http://localhost:3000"
+
+# OAuth Providers (Optional)
+# Google OAuth
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
+
+# GitHub OAuth
+GITHUB_ID="your-github-client-id"
+GITHUB_SECRET="your-github-client-secret"
 ```
 
 **Important**: Never commit your `.env` file to version control. Use `.env.example` as a template.
@@ -107,7 +143,8 @@ focus-timer-web/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── api/               # API routes
-│   │   │   └── auth/          # NextAuth endpoints
+│   │   │   ├── auth/          # NextAuth endpoints
+│   │   │   └── register/      # User registration API
 │   │   ├── sign-in/           # Sign-in page
 │   │   ├── register/          # Registration page
 │   │   ├── layout.tsx         # Root layout with auth providers
@@ -126,6 +163,8 @@ focus-timer-web/
 │   └── migrations/            # Database migrations
 ├── public/                     # Static assets
 ├── .env.example               # Environment variables template
+├── jest.config.js             # Jest configuration
+├── jest.setup.ts              # Jest setup and mocks
 └── package.json                # Dependencies and scripts
 ```
 
@@ -135,12 +174,13 @@ The app includes a complete authentication system:
 
 - **User Registration**: Create new accounts with email/password
 - **User Sign In**: Secure authentication with bcrypt password hashing
+- **OAuth Integration**: Google and GitHub sign-in options
 - **Session Management**: Persistent user sessions with NextAuth.js
 - **Protected Routes**: Premium features gated behind authentication
 - **Password Security**: Secure password hashing with bcryptjs
 
 ### Authentication Flow
-1. Users can register with email and password
+1. Users can register with email/password or use OAuth providers
 2. Passwords are securely hashed using bcryptjs
 3. Sign-in validates credentials against the database
 4. Sessions are managed by NextAuth.js
@@ -187,7 +227,7 @@ We welcome contributions! Please follow these steps:
 ### Development Guidelines
 - Follow TypeScript best practices
 - Use conventional commit messages
-- Test your changes thoroughly
+- Test your changes thoroughly with `npm test`
 - Update documentation as needed
 - Never commit sensitive information (use .env.example)
 
@@ -201,6 +241,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Authentication powered by [NextAuth.js](https://next-auth.js.org/)
 - Database management with [Prisma](https://www.prisma.io/)
+- Testing with [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/)
 
 ## 📞 Support
 

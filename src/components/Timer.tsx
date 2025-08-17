@@ -5,6 +5,7 @@ import Modal from '@/components/Modal';
 import { trackEvent } from '@/lib/analytics';
 
 type SessionPhase = 'focus' | 'break';
+type DurationMode = 'focus' | 'break';
 
 declare global {
   interface Window {
@@ -29,6 +30,7 @@ export default function Timer({
 }): React.ReactElement {
   const [focusDurationMinutes, setFocusDurationMinutes] = useState<number>(25);
   const [breakDurationMinutes, setBreakDurationMinutes] = useState<number>(5);
+  const [durationMode, setDurationMode] = useState<DurationMode>('focus');
   const [phase, setPhase] = useState<SessionPhase>('focus');
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [secondsRemaining, setSecondsRemaining] = useState<number>(focusDurationMinutes * 60);
@@ -174,6 +176,7 @@ export default function Timer({
   const handleSkip = React.useCallback((): void => {
     const nextPhase: SessionPhase = phase === 'focus' ? 'break' : 'focus';
     setPhase(nextPhase);
+    setDurationMode(nextPhase);
     setSecondsRemaining((nextPhase === 'focus' ? focusDurationMinutes : breakDurationMinutes) * 60);
     trackEvent('timer_skip', { to: nextPhase });
   }, [phase, focusDurationMinutes, breakDurationMinutes]);
@@ -188,6 +191,7 @@ export default function Timer({
       const parsed = JSON.parse(raw) as {
         focusDurationMinutes: number;
         breakDurationMinutes: number;
+        durationMode?: DurationMode;
         phase: SessionPhase;
         secondsRemaining: number;
         enableSound?: boolean;
@@ -197,6 +201,7 @@ export default function Timer({
       };
       setFocusDurationMinutes(parsed.focusDurationMinutes);
       setBreakDurationMinutes(parsed.breakDurationMinutes);
+      if (parsed.durationMode) setDurationMode(parsed.durationMode);
       setPhase(parsed.phase);
       setSecondsRemaining(parsed.secondsRemaining);
       if (typeof parsed.enableSound === 'boolean') setEnableSound(parsed.enableSound);
@@ -231,6 +236,7 @@ export default function Timer({
       const payload = JSON.stringify({
         focusDurationMinutes,
         breakDurationMinutes,
+        durationMode,
         phase,
         secondsRemaining,
         enableSound,
@@ -242,7 +248,7 @@ export default function Timer({
     } catch {
       // ignore
     }
-  }, [focusDurationMinutes, breakDurationMinutes, phase, secondsRemaining, enableSound, enableNotifications, autoStartNextPhase, stats]);
+  }, [focusDurationMinutes, breakDurationMinutes, durationMode, phase, secondsRemaining, enableSound, enableNotifications, autoStartNextPhase, stats]);
 
   // Update document title with time remaining
   useEffect(() => {
@@ -278,7 +284,39 @@ export default function Timer({
         <span className="text-[64px] leading-none font-bold tabular-nums">{formatSecondsAsClock(secondsRemaining)}</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="mb-6">
+        <div className="flex gap-2 mb-4">
+          <button
+            className={`flex-1 h-10 rounded-md border text-sm font-medium transition-colors ${
+              durationMode === 'focus'
+                ? 'bg-foreground text-background border-transparent'
+                : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+            }`}
+            onClick={() => {
+              setDurationMode('focus');
+              setPhase('focus');
+              if (!isRunning) setSecondsRemaining(focusDurationMinutes * 60);
+            }}
+          >
+            Focus Duration
+          </button>
+          <button
+            className={`flex-1 h-10 rounded-md border text-sm font-medium transition-colors ${
+              durationMode === 'break'
+                ? 'bg-foreground text-background border-transparent'
+                : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+            }`}
+            onClick={() => {
+              setDurationMode('break');
+              setPhase('break');
+              if (!isRunning) setSecondsRemaining(breakDurationMinutes * 60);
+            }}
+          >
+            Break Duration
+          </button>
+        </div>
+
+        {durationMode === 'focus' ? (
         <div className="flex flex-col gap-2">
           <label className="text-sm opacity-80">Focus (min)</label>
           <div className="flex gap-2">
@@ -330,7 +368,7 @@ export default function Timer({
             )}
           </div>
         </div>
-
+        ) : (
         <div className="flex flex-col gap-2">
           <label className="text-sm opacity-80">Break (min)</label>
           <div className="flex gap-2">
@@ -382,6 +420,7 @@ export default function Timer({
             )}
           </div>
         </div>
+        )}
       </div>
 
       <div className="flex items-center justify-center gap-3">
