@@ -33,6 +33,10 @@ export default function SignInPage(): React.ReactElement {
     }
   }
 
+  async function handleOAuth(provider: 'google' | 'github') {
+    await signIn(provider, { callbackUrl: '/' });
+  }
+
   return (
     <div className="min-h-[60vh] grid place-items-center p-6">
       <form onSubmit={handleSubmit} className="w-full max-w-sm border rounded-xl p-6 border-black/10 dark:border-white/15">
@@ -41,6 +45,26 @@ export default function SignInPage(): React.ReactElement {
           {registrationSuccess && (
             <p className="text-sm text-green-600">Registration successful. Please sign in.</p>
           )}
+
+          {/* OAuth providers */}
+          <button
+            type="button"
+            onClick={() => handleOAuth('google')}
+            className="h-10 rounded-full border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            Continue with Google
+          </button>
+          <button
+            type="button"
+            onClick={() => handleOAuth('github')}
+            className="h-10 rounded-full border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            Continue with GitHub
+          </button>
+
+          <div className="my-2 text-center text-xs opacity-70">or</div>
+
+          {/* Credentials */}
           <input
             type="email"
             placeholder="Email"
