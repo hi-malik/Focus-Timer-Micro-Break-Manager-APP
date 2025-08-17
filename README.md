@@ -1,6 +1,6 @@
 # Focus Timer & Micro-Break Manager - SAAS
 
-A modern, distraction-free Pomodoro-style timer web app built with Next.js, TypeScript, and Tailwind CSS. It helps you stay focused during work sessions and take restorative micro-breaks, with user authentication, session management, and premium features.
+A modern, distraction-free Pomodoro-style timer web app built with Next.js, TypeScript, and Tailwind CSS. It helps you stay focused during work sessions and take restorative micro-breaks, with user authentication, session management, admin dashboard, and premium features.
 
 ## 🚀 Live Demo
 
@@ -136,38 +136,6 @@ GITHUB_SECRET="your-github-client-secret"
 - **Development**: SQLite (automatically created)
 - **Production**: PostgreSQL (recommended for production)
 
-## 🏗️ Project Structure
-
-```
-focus-timer-web/
-├── src/
-│   ├── app/                    # Next.js App Router
-│   │   ├── api/               # API routes
-│   │   │   ├── auth/          # NextAuth endpoints
-│   │   │   └── register/      # User registration API
-│   │   ├── sign-in/           # Sign-in page
-│   │   ├── register/          # Registration page
-│   │   ├── layout.tsx         # Root layout with auth providers
-│   │   └── page.tsx           # Home page
-│   ├── components/             # React components
-│   │   ├── Timer.tsx          # Main timer component
-│   │   ├── Header.tsx         # Navigation header with auth
-│   │   ├── Modal.tsx          # Reusable modal
-│   │   └── ThemeToggle.tsx    # Theme switching
-│   ├── lib/                    # Utility functions
-│   │   ├── prisma.ts          # Database client
-│   │   └── analytics.ts       # Analytics helpers
-│   └── generated/              # Generated Prisma client
-├── prisma/                     # Database schema
-│   ├── schema.prisma          # Prisma schema definition
-│   └── migrations/            # Database migrations
-├── public/                     # Static assets
-├── .env.example               # Environment variables template
-├── jest.config.js             # Jest configuration
-├── jest.setup.ts              # Jest setup and mocks
-└── package.json                # Dependencies and scripts
-```
-
 ## 🔐 Authentication Features
 
 The app includes a complete authentication system:
@@ -180,6 +148,7 @@ The app includes a complete authentication system:
 - **Session Management**: Persistent user sessions with NextAuth.js
 - **Protected Routes**: Premium features gated behind authentication
 - **Password Security**: Secure password hashing with bcryptjs
+- **Role-Based Access Control**: User and admin roles with secure permissions
 
 ### Authentication Flow
 1. Users can register with email/password or use OAuth providers
@@ -194,6 +163,83 @@ The app includes a complete authentication system:
 3. Reset link is sent to user's email with verification token
 4. User clicks link and enters new password
 5. Token is verified and password is updated securely
+
+## 👑 Admin Dashboard
+
+The app includes a comprehensive admin dashboard for user management and system oversight:
+
+### Admin Features
+- **User Management**: View all registered users with detailed information
+- **Role Management**: Promote users to admin or demote to regular user
+- **User Actions**: Delete user accounts (with safety checks)
+- **System Metrics**: Real-time counts of users, OAuth accounts, and active sessions
+- **Access Control**: Admin-only access with role-based permissions
+- **Security Features**: Prevents admins from demoting themselves or deleting their own account
+
+### Admin Access
+- **Role System**: Users have either `USER` or `ADMIN` roles
+- **Protected Routes**: Admin dashboard only accessible to users with `ADMIN` role
+- **Header Navigation**: Admin link appears in header for admin users
+- **Server-Side Validation**: All admin actions verified server-side
+
+### Admin Dashboard Location
+- **URL**: `/admin` (only accessible to admin users)
+- **Navigation**: Admin link appears in header when user has admin role
+- **Access Control**: Non-admin users see "Access denied" message
+
+### Making a User Admin
+To access the admin dashboard, you need to make an existing user an admin:
+
+1. **Using Prisma Studio**:
+   ```bash
+   npx prisma studio
+   ```
+   Then update the user's `role` field from `USER` to `ADMIN`
+
+2. **Direct Database Update**:
+   ```sql
+   UPDATE "User" SET role = 'ADMIN' WHERE email = 'user@example.com';
+   ```
+
+3. **Using the Admin Dashboard**: Once you have one admin user, you can promote others through the dashboard
+
+## 🏗️ Project Structure
+
+```
+focus-timer-web/
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── api/               # API routes
+│   │   │   ├── admin/         # Admin API endpoints
+│   │   │   │   └── users/     # User management APIs
+│   │   │   ├── auth/          # NextAuth endpoints
+│   │   │   └── register/      # User registration API
+│   │   ├── admin/             # Admin dashboard page
+│   │   ├── sign-in/           # Sign-in page
+│   │   ├── register/          # Registration page
+│   │   ├── layout.tsx         # Root layout with auth providers
+│   │   └── page.tsx           # Home page
+│   ├── components/             # React components
+│   │   ├── Timer.tsx          # Main timer component
+│   │   ├── Header.tsx         # Navigation header with auth & admin
+│   │   ├── Modal.tsx          # Reusable modal
+│   │   └── ThemeToggle.tsx    # Theme switching
+│   ├── lib/                    # Utility functions
+│   │   ├── auth.ts            # NextAuth configuration
+│   │   ├── prisma.ts          # Database client
+│   │   └── analytics.ts       # Analytics helpers
+│   ├── types/                  # TypeScript type definitions
+│   │   └── next-auth.d.ts     # NextAuth type extensions
+│   └── generated/              # Generated Prisma client
+├── prisma/                     # Database schema
+│   ├── schema.prisma          # Prisma schema with role system
+│   └── migrations/            # Database migrations
+├── public/                     # Static assets
+├── .env.example               # Environment variables template
+├── jest.config.js             # Jest configuration
+├── jest.setup.ts              # Jest setup and mocks
+└── package.json                # Dependencies and scripts
+```
 
 ## 📧 Email Configuration
 
