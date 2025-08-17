@@ -5,6 +5,7 @@ import Modal from '@/components/Modal';
 import { trackEvent } from '@/lib/analytics';
 
 type SessionPhase = 'focus' | 'break';
+type DurationMode = 'focus' | 'break';
 
 declare global {
   interface Window {
@@ -29,6 +30,7 @@ export default function Timer({
 }): React.ReactElement {
   const [focusDurationMinutes, setFocusDurationMinutes] = useState<number>(25);
   const [breakDurationMinutes, setBreakDurationMinutes] = useState<number>(5);
+  const [durationMode, setDurationMode] = useState<DurationMode>('focus');
   const [phase, setPhase] = useState<SessionPhase>('focus');
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [secondsRemaining, setSecondsRemaining] = useState<number>(focusDurationMinutes * 60);
@@ -84,6 +86,8 @@ export default function Timer({
           // Auto-switch phase when timer hits zero
           const nextPhase: SessionPhase = phase === 'focus' ? 'break' : 'focus';
           setPhase(nextPhase);
+          // Keep the duration tab in sync with the active phase
+          setDurationMode(nextPhase);
           // Update stats on completion
           setStats((prev) => {
             const today = new Date().toDateString();
@@ -174,6 +178,8 @@ export default function Timer({
   const handleSkip = React.useCallback((): void => {
     const nextPhase: SessionPhase = phase === 'focus' ? 'break' : 'focus';
     setPhase(nextPhase);
+    // Also switch the duration tab to match the new phase
+    setDurationMode(nextPhase);
     setSecondsRemaining((nextPhase === 'focus' ? focusDurationMinutes : breakDurationMinutes) * 60);
     trackEvent('timer_skip', { to: nextPhase });
   }, [phase, focusDurationMinutes, breakDurationMinutes]);
@@ -188,6 +194,7 @@ export default function Timer({
       const parsed = JSON.parse(raw) as {
         focusDurationMinutes: number;
         breakDurationMinutes: number;
+        durationMode?: DurationMode;
         phase: SessionPhase;
         secondsRemaining: number;
         enableSound?: boolean;
@@ -197,6 +204,7 @@ export default function Timer({
       };
       setFocusDurationMinutes(parsed.focusDurationMinutes);
       setBreakDurationMinutes(parsed.breakDurationMinutes);
+      setDurationMode((parsed.durationMode ?? parsed.phase ?? 'focus') as DurationMode);
       setPhase(parsed.phase);
       setSecondsRemaining(parsed.secondsRemaining);
       if (typeof parsed.enableSound === 'boolean') setEnableSound(parsed.enableSound);
@@ -231,6 +239,7 @@ export default function Timer({
       const payload = JSON.stringify({
         focusDurationMinutes,
         breakDurationMinutes,
+        durationMode,
         phase,
         secondsRemaining,
         enableSound,
@@ -242,7 +251,7 @@ export default function Timer({
     } catch {
       // ignore
     }
-  }, [focusDurationMinutes, breakDurationMinutes, phase, secondsRemaining, enableSound, enableNotifications, autoStartNextPhase, stats]);
+  }, [focusDurationMinutes, breakDurationMinutes, durationMode, phase, secondsRemaining, enableSound, enableNotifications, autoStartNextPhase, stats]);
 
   // Update document title with time remaining
   useEffect(() => {
@@ -278,110 +287,147 @@ export default function Timer({
         <span className="text-[64px] leading-none font-bold tabular-nums">{formatSecondsAsClock(secondsRemaining)}</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="flex flex-col gap-2">
-          <label className="text-sm opacity-80">Focus (min)</label>
-          <div className="flex gap-2">
-            {[25, 45, 90].map((m) => (
-              <button
-                key={`focus-${m}`}
-                className={`flex-1 h-9 rounded-md border text-sm transition-colors ${
-                  focusDurationMinutes === m
-                    ? 'bg-foreground text-background border-transparent'
-                    : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
-                }`}
-                onClick={() => {
-                  setFocusDurationMinutes(m);
-                  if (phase === 'focus' && !isRunning) {
-                    setSecondsRemaining(m * 60);
-                  }
-                }}
-              >
-                {m}
-              </button>
-            ))}
-          </div>
-          <div className="mt-2">
-            {isPremium ? (
-              <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  min={1}
-                  max={180}
-                  value={focusDurationMinutes}
-                  onChange={(e) => {
-                    const next = Math.max(1, Math.min(180, Number(e.target.value) || 0));
-                    setFocusDurationMinutes(next);
-                    if (phase === 'focus' && !isRunning) {
-                      setSecondsRemaining(next * 60);
-                    }
-                  }}
-                  className="h-9 w-24 rounded-md border border-black/10 dark:border-white/15 bg-transparent px-3"
-                />
-                <span className="text-sm opacity-80">Custom</span>
-              </div>
-            ) : (
-              <button
-                className="h-9 px-3 rounded-md border border-black/10 dark:border-white/15 text-sm hover:bg-black/5 dark:hover:bg-white/10"
-                onClick={() => setIsPaywallOpen(true)}
-              >
-                Custom (Premium)
-              </button>
-            )}
-          </div>
+      <div className="mb-6">
+        <div className="flex gap-2 mb-4">
+          <button
+            className={`flex-1 h-10 rounded-md border text-sm font-medium transition-colors ${
+              durationMode === 'focus'
+                ? 'bg-foreground text-background border-transparent'
+                : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+            }`}
+            onClick={() => {
+              setDurationMode('focus');
+              setPhase('focus');
+              if (!isRunning) {
+                setSecondsRemaining(focusDurationMinutes * 60);
+              }
+            }}
+          >
+            Focus Duration
+          </button>
+          <button
+            className={`flex-1 h-10 rounded-md border text-sm font-medium transition-colors ${
+              durationMode === 'break'
+                ? 'bg-foreground text-background border-transparent'
+                : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+            }`}
+            onClick={() => {
+              setDurationMode('break');
+              setPhase('break');
+              if (!isRunning) {
+                setSecondsRemaining(breakDurationMinutes * 60);
+              }
+            }}
+          >
+            Break Duration
+          </button>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <label className="text-sm opacity-80">Break (min)</label>
-          <div className="flex gap-2">
-            {[5, 10, 15].map((m) => (
-              <button
-                key={`break-${m}`}
-                className={`flex-1 h-9 rounded-md border text-sm transition-colors ${
-                  breakDurationMinutes === m
-                    ? 'bg-foreground text-background border-transparent'
-                    : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
-                }`}
-                onClick={() => {
-                  setBreakDurationMinutes(m);
-                  if (phase === 'break' && !isRunning) {
-                    setSecondsRemaining(m * 60);
-                  }
-                }}
-              >
-                {m}
-              </button>
-            ))}
-          </div>
-          <div className="mt-2">
-            {isPremium ? (
-              <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  min={1}
-                  max={60}
-                  value={breakDurationMinutes}
-                  onChange={(e) => {
-                    const next = Math.max(1, Math.min(60, Number(e.target.value) || 0));
-                    setBreakDurationMinutes(next);
-                    if (phase === 'break' && !isRunning) {
-                      setSecondsRemaining(next * 60);
+        {durationMode === 'focus' ? (
+          <div className="flex flex-col gap-2">
+            <label className="text-sm opacity-80">Focus (min)</label>
+            <div className="flex gap-2">
+              {[25, 45, 90].map((m) => (
+                <button
+                  key={`focus-${m}`}
+                  className={`flex-1 h-9 rounded-md border text-sm transition-colors ${
+                    focusDurationMinutes === m
+                      ? 'bg-foreground text-background border-transparent'
+                      : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+                  }`}
+                  onClick={() => {
+                    setFocusDurationMinutes(m);
+                    if (phase === 'focus' && !isRunning) {
+                      setSecondsRemaining(m * 60);
                     }
                   }}
-                  className="h-9 w-24 rounded-md border border-black/10 dark:border-white/15 bg-transparent px-3"
-                />
-                <span className="text-sm opacity-80">Custom</span>
-              </div>
-            ) : (
-              <button
-                className="h-9 px-3 rounded-md border border-black/10 dark:border-white/15 text-sm hover:bg-black/5 dark:hover:bg-white/10"
-                onClick={() => setIsPaywallOpen(true)}
-              >
-                Custom (Premium)
-              </button>
-            )}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+            <div className="mt-2">
+              {isPremium ? (
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={1}
+                    max={180}
+                    value={focusDurationMinutes}
+                    onChange={(e) => {
+                      const next = Math.max(1, Math.min(180, Number(e.target.value) || 0));
+                      setFocusDurationMinutes(next);
+                      if (phase === 'focus' && !isRunning) {
+                        setSecondsRemaining(next * 60);
+                      }
+                    }}
+                    className="h-9 w-24 rounded-md border border-black/10 dark:border-white/15 bg-transparent px-3"
+                  />
+                  <span className="text-sm opacity-80">Custom</span>
+                </div>
+              ) : (
+                <button
+                  className="h-9 px-3 rounded-md border border-black/10 dark:border-white/15 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+                  onClick={() => setIsPaywallOpen(true)}
+                >
+                  Custom (Premium)
+                </button>
+              )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="flex flex-col gap-2">
+            <label className="text-sm opacity-80">Break (min)</label>
+            <div className="flex gap-2">
+              {[5, 10, 15].map((m) => (
+                <button
+                  key={`break-${m}`}
+                  className={`flex-1 h-9 rounded-md border text-sm transition-colors ${
+                    breakDurationMinutes === m
+                      ? 'bg-foreground text-background border-transparent'
+                      : 'border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10'
+                  }`}
+                  onClick={() => {
+                    setBreakDurationMinutes(m);
+                    if (phase === 'break' && !isRunning) {
+                      setSecondsRemaining(m * 60);
+                    }
+                  }}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+            <div className="mt-2">
+              {isPremium ? (
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={1}
+                    max={60}
+                    value={breakDurationMinutes}
+                    onChange={(e) => {
+                      const next = Math.max(1, Math.min(60, Number(e.target.value) || 0));
+                      setBreakDurationMinutes(next);
+                      if (phase === 'break' && !isRunning) {
+                        setSecondsRemaining(next * 60);
+                      }
+                    }}
+                    className="h-9 w-24 rounded-md border border-black/10 dark:border-white/15 bg-transparent px-3"
+                  />
+                  <span className="text-sm opacity-80">Custom</span>
+                </div>
+              ) : (
+                <button
+                  className="h-9 px-3 rounded-md border border-black/10 dark:border-white/15 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+                  onClick={() => setIsPaywallOpen(true)}
+                >
+                  Custom (Premium)
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="flex items-center justify-center gap-3">
