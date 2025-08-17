@@ -28,6 +28,8 @@ export default function SignInPage(): React.ReactElement {
     const res = await signIn('credentials', { email, password, redirect: false });
     if (res?.ok) {
       router.push('/');
+    } else if (res?.error === 'EMAIL_NOT_VERIFIED') {
+      setError('Please verify your email before signing in.');
     } else {
       setError('Invalid credentials');
     }

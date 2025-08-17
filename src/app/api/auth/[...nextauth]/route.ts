@@ -34,6 +34,10 @@ const handler = NextAuth({
         if (!email || !password) return null;
         const user = await prisma.user.findUnique({ where: { email } });
         if (!user) return null;
+        // Block login if email not verified
+        // if (!user.emailVerified) {
+        //   throw new Error('EMAIL_NOT_VERIFIED');
+        // }
         const ok = await bcrypt.compare(password, user.passwordHash);
         if (!ok) return null;
         return { id: user.id, name: user.name ?? user.email, email: user.email };

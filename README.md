@@ -175,6 +175,8 @@ The app includes a complete authentication system:
 - **User Registration**: Create new accounts with email/password
 - **User Sign In**: Secure authentication with bcrypt password hashing
 - **OAuth Integration**: Google and GitHub sign-in options
+- **Password Reset**: Secure password reset via email verification
+- **Email Verification**: Token-based email verification system
 - **Session Management**: Persistent user sessions with NextAuth.js
 - **Protected Routes**: Premium features gated behind authentication
 - **Password Security**: Secure password hashing with bcryptjs
@@ -185,6 +187,38 @@ The app includes a complete authentication system:
 3. Sign-in validates credentials against the database
 4. Sessions are managed by NextAuth.js
 5. User state is available throughout the application
+
+### Password Reset Flow
+1. User requests password reset from sign-in page
+2. System generates secure reset token and stores in database
+3. Reset link is sent to user's email with verification token
+4. User clicks link and enters new password
+5. Token is verified and password is updated securely
+
+## 📧 Email Configuration
+
+The app supports multiple email providers for password reset functionality:
+
+### Supported Providers
+- **Resend** (Recommended): Modern email API with excellent deliverability
+- **SendGrid**: Enterprise-grade email service
+
+### Environment Variables
+```env
+# Choose one email provider:
+RESEND_API_KEY="your-resend-api-key"
+# OR
+SENDGRID_API_KEY="your-sendgrid-api-key"
+
+# Email sender address
+EMAIL_FROM="noreply@yourdomain.com"
+```
+
+### Email Features
+- **Password Reset**: Secure token-based password reset
+- **Email Templates**: Professional HTML email templates
+- **Token Expiration**: Automatic token cleanup for security
+- **Error Handling**: Graceful fallback when email services are unavailable
 
 ## 🚀 Production Deployment
 
