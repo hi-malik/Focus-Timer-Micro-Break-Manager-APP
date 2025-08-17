@@ -6,7 +6,13 @@ import { useSession, signOut } from 'next-auth/react';
 
 jest.mock('@/lib/analytics', () => ({ trackEvent: jest.fn() }));
 jest.mock('next-auth/react', () => ({ useSession: jest.fn(), signOut: jest.fn() }));
-jest.mock('next/link', () => ({ __esModule: true, default: ({ children, href }) => <a href={href}>{children}</a> }));
+jest.mock('next/link', () => ({
+  __esModule: true,
+  // Provide explicit types to satisfy strict TypeScript settings
+  default: ({ children, href }: { children: React.ReactNode; href: string }) => (
+    <a href={href}>{children}</a>
+  ),
+}));
 
 describe('Header component', () => {
   beforeEach(() => jest.clearAllMocks());

@@ -7,8 +7,14 @@ jest.mock('next/server', () => ({
     json: (body: any, init?: any) => ({ status: init?.status || 200, json: async () => body }),
   },
 }));
-jest.mock('@/lib/prisma', () => ({ prisma: { user: { findUnique: jest.fn(), create: jest.fn() } } }));
+jest.mock('@/lib/prisma', () => ({
+  prisma: {
+    user: { findUnique: jest.fn(), create: jest.fn() },
+    verificationToken: { create: jest.fn() },
+  },
+}));
 jest.mock('bcryptjs', () => ({ hash: jest.fn().mockResolvedValue('hashed') }));
+jest.mock('@/lib/email', () => ({ sendEmail: jest.fn() }));
 
 describe('register API route', () => {
   beforeEach(() => jest.clearAllMocks());
