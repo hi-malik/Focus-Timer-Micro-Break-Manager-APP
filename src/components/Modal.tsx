@@ -25,11 +25,11 @@ export default function Modal({
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 grid place-items-center">
-      <div className="absolute inset-0 bg-black/50" onClick={onClose} data-testid="modal-overlay" />
+      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
       <div className="relative w-full max-w-md mx-auto rounded-xl border border-black/10 dark:border-white/15 bg-background p-5 shadow-xl">
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-semibold">{title}</h3>
-          <button data-testid="modal-close-button" className="text-sm opacity-70 hover:opacity-100" onClick={onClose}>✕</button>
+          <button className="text-sm opacity-70 hover:opacity-100" onClick={onClose}>✕</button>
         </div>
         {children}
       </div>
