@@ -19,7 +19,7 @@ model User {
   emailVerified DateTime?
   image         String?
   // Custom fields
-  passwordHash  String
+  passwordHash  String?
 
   accounts Account[]
   sessions Session[]
