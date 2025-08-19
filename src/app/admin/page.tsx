@@ -19,7 +19,7 @@ async function requireAdmin() {
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ q?: string | string[]; page?: string | string[] }>;
+  searchParams?: Promise<{ q?: string | string[]; page?: string | string[]; role?: string | string[] }>;
 }) {
   const session = await requireAdmin();
   if (!session) {
@@ -37,6 +37,7 @@ export default async function AdminPage({
   // Handle search and pagination params
   const sp = await searchParams ?? {};
   const q = Array.isArray(sp.q) ? sp.q[0] : (sp.q ?? '');
+  const roleFilter = Array.isArray(sp.role) ? sp.role[0] : (sp.role ?? '');
   const pageParam = Array.isArray(sp.page) ? sp.page[0] : sp.page;
   const page = parseInt(pageParam ?? '1', 10) || 1;
   const pageSize = 10;
@@ -90,6 +91,11 @@ export default async function AdminPage({
         <div className="px-6 py-4 border-b border-black/10 dark:border-white/10 bg-black/[.03] dark:bg-white/[.03] flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <h2 className="font-medium">Users</h2>
           <form className="flex items-center gap-2 w-full md:w-auto" method="get">
+            <select name="role" defaultValue={roleFilter} className="h-9 px-2 rounded-md border border-black/10 dark:border-white/15 bg-transparent text-sm">
+              <option value="">All Roles</option>
+              <option value="USER">User</option>
+              <option value="ADMIN">Admin</option>
+            </select>
             <input
               type="text"
               name="q"
@@ -100,6 +106,12 @@ export default async function AdminPage({
             <button className="h-9 px-4 rounded-full border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 text-sm">
               Search
             </button>
+            <Link
+              href={`/api/admin/users/export?q=${encodeURIComponent(q)}&role=${encodeURIComponent(roleFilter)}`}
+              className="h-9 px-4 rounded-full border border-black/10 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/10 text-sm"
+            >
+              Export CSV
+            </Link>
           </form>
         </div>
         <div className="divide-y divide-black/10 dark:divide-white/10">
@@ -163,19 +175,19 @@ export default async function AdminPage({
           )}
           {/* Pagination Controls */}
           <div className="flex items-center justify-between px-6 py-4">
-            <button
-              disabled={page <= 1}
-              className="px-3 py-1 rounded-md border border-black/20 dark:border-white/20 text-sm"
+            <Link
+              href={`?q=${encodeURIComponent(q)}&role=${encodeURIComponent(roleFilter)}&page=${page - 1}`}
+              className={`px-3 py-1 rounded-md border border-black/20 dark:border-white/20 text-sm ${page <= 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               Previous
-            </button>
+            </Link>
             <span className="text-sm opacity-70">Page {page} of {Math.ceil(totalUsers / pageSize)}</span>
-            <button
-              disabled={page >= Math.ceil(totalUsers / pageSize)}
-              className="px-3 py-1 rounded-md border border-black/20 dark:border-white/20 text-sm"
+            <Link
+              href={`?q=${encodeURIComponent(q)}&role=${encodeURIComponent(roleFilter)}&page=${page + 1}`}
+              className={`px-3 py-1 rounded-md border border-black/20 dark:border-white/20 text-sm ${page >= Math.ceil(totalUsers / pageSize) ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               Next
-            </button>
+            </Link>
           </div>
         </div>
       </section>
